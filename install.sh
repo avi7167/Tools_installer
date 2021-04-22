@@ -9,6 +9,8 @@ go_path_setting() {
 	echo "export GOPATH=$HOME/go" >> ~/.bashrc
 	echo "export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH" >> ~/.bashrc
   }
+golang_install;
+go_path_setting;
 sudo apt-get install python3;
 sudo apt-get install python3-pip;
 sudo apt-get install ruby;
