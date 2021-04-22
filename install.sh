@@ -1,14 +1,14 @@
 #!/bin/sh
 
 golang_install() {
-	wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
-  tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
+ wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
+ tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
 }
 go_path_setting() {
-	echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-	echo "export GOPATH=$HOME/go" >> ~/.bashrc
-	echo "export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH" >> ~/.bashrc
-  }
+ echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+ echo "export GOPATH=$HOME/go" >> ~/.bashrc
+ echo "export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH" >> ~/.bashrc
+ }
 golang_install;
 go_path_setting;
 sudo apt-get install python3;
