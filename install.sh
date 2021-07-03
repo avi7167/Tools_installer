@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo apt-get update -y && sudo apt-get upgrade -y;
+
 golang_install() {
  wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
  tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
@@ -8,17 +10,31 @@ go_path_setting() {
  echo "export GOROOT=/usr/local/go" >> ~/.bashrc
  echo "export GOPATH=$HOME/go" >> ~/.bashrc
  echo "export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH" >> ~/.bashrc
+ source ~/.bashrc
  }
 golang_install;
 go_path_setting;
-sudo apt-get install python3;
-sudo apt-get install python3-pip;
-sudo apt-get install ruby;
-sudo apt-get install screen;
-sudo apt-get install git;
+sudo apt-get install -y python3;
+sudo apt-get install -y python3-pip;
+sudo apt-get install -y ruby;
+sudo apt-get install -y screen;
+sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y jq
+sudo apt-get install -y libpcap-dev
+sudo apt-get install -y ruby-full
+sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
+sudo apt-get install -y python-setuptools
+sudo apt-get install -y libldns-dev
+sudo apt-get install -y python-pip
+sudo apt-get install -y python-dnspython
 pip install py-altdns;
-apt install -y libpcap-dev
+sudo apt-get install -y git
+sudo apt-get install -y rename
+sudo apt-get install -y xargs
 go get -u github.com/tomnomnom/gf
+sudo snap install feroxbuster
 mkdir ~/.gf
 mkdir ~/Tools;
 mkdir ~/Recon;
@@ -49,9 +65,6 @@ pip3 install corscanner
 pip3 install -r ~/Tools/*/requirements.txt;
 mv $dir/Gf-Patterns/*.json /root/.gf/;
 rm -r $dir/Gf-Patterns;
-mv arsenal ~/arsenal;
-cd ~/arsenal;
-chmod +x *.sh;
 cd $dir/massdns; make;
 cp $dir/massdns/bin/massdns /usr/bin/;
 cd ~/.gf; wget https://raw.githubusercontent.com/devanshbatham/ParamSpider/master/gf_profiles/potential.json;
