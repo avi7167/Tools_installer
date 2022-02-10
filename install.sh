@@ -2,6 +2,8 @@
 
 
 sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get install git -y
+sudo apt-get install unzip -y
 sudo apt-get install -y --reinstall build-essential
 sudo apt-get install -y python3-pip
 sudo apt-get install -y dnsutils
@@ -11,6 +13,9 @@ sudo apt-get install -y python3-pip;
 sudo apt-get install -y ruby;
 sudo apt-get install -y screen;
 sudo apt-get install -y libcurl4-openssl-dev
+sudo apt-get install cmake -y
+sudo apt-get install jq -y
+sudo apt-get install snapd -y
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y jq
 sudo apt-get install -y libpcap-dev
@@ -24,12 +29,15 @@ sudo apt clean -y
 golang_install(){
   wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
   sudo tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+  export GOROOT=/usr/local/go
+  export GOPATH=$HOME/go
+  export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+  if [[ $(go version | grep -o '1.17') == 1.17 ]]; then
+  echo -e "Go is installed Successfully"
   sudo echo 'export GOROOT=/usr/local/go' >> ~/.bashrc 
   sudo echo 'export GOPATH=$HOME/go' >> ~/.bashrc 
   sudo echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc
   source ~/.bashrc
-  if [[ $(go version | grep -o '1.17') == 1.17 ]]; then
-  echo -e "Go is installed Successfully"
   fi
 
 }
