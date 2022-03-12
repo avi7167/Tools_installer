@@ -23,6 +23,8 @@ sudo apt-get install -y ruby-full
 sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
 sudo apt-get install -y build-essential libssl-dev libffi-dev
 sudo apt-get install -y rename
+sudo apt-get install -y feroxbuster
+git clone https://github.com/danielmiessler/SecLists.git
 sudo apt-get autoremove -y
 sudo apt clean -y
 
